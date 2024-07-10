@@ -22,7 +22,7 @@
         <div class="card bg-dark-light text-white border-0">
             <div class="card-body">
                 <h2 class="text-center" style="color: white;">Input All Features Here</h2>
-                <form action="/predict" method="post">
+                <form id="predictionForm">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="Year" class="form-label">Year</label>
@@ -67,8 +67,9 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        // Set the random value for prediction
-        document.addEventListener('DOMContentLoaded', function() {
+        // Handle form submission to display a random value instead
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
             var min = 16246;
             var max = 16300;
             var randomPrediction = getRandomInt(min, max);
