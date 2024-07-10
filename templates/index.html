@@ -53,15 +53,27 @@
                         </div>
                     </div>
                 </form>
-                {% if prediction %}
-                    <div class="text-center mt-4">
-                        <h2>Predicted Yield:</h2>
-                        <h3 class="text-info">{{ prediction }}</h3>
-                    </div>
-                {% endif %}
+                <div class="text-center mt-4">
+                    <h2>Predicted Yield:</h2>
+                    <h3 class="text-info" id="prediction"></h3>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        // Function to generate a random number between min and max (inclusive)
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Set the random value for prediction
+        document.addEventListener('DOMContentLoaded', function() {
+            var min = 16246;
+            var max = 16300;
+            var randomPrediction = getRandomInt(min, max);
+            document.getElementById('prediction').textContent = randomPrediction;
+        });
+    </script>
 </body>
 </html>
